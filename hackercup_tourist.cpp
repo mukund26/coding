@@ -23,6 +23,30 @@ int scan(){
 }
 
 int main(){
-    
-	return 0;
+    int t = scan();
+    ll n,k,v;
+    unorderedmap <string,int> m;
+    unorderedmap <int,int> m2;
+    while(t--){
+        cin>>n>>k>>v;
+        string s;
+        for(ll i=0;i<n-1;i++){
+            cin>>s;
+            //m.insert(pair<string,int>(s,i));
+            m.insert(pair<int,int>(i,0));
+        }
+        int loc=0;
+        for(ll j=0;j<v-1;j++)
+        for(ll i=0;i<k;i++){
+            m[loc]++;
+            loc=(loc+1)%n;
+        }
+    }
+    return 0;
 }
+
+/*
+for(auto x:m){
+            cout<<x.first<<" "<<x.second<<endl;
+        }
+*/
