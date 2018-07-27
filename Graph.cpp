@@ -2,7 +2,6 @@
 	Implementing everything of graph .... to be updated with time
 */
 
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -24,7 +23,7 @@ int scan(){
 		n = (n<<1) + (n<<3) + c - 48;
 	}	
 	if(neg) return -n;
-	else return neg;
+	else return n;
 }
 
 class Graph{
