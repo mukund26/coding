@@ -57,12 +57,41 @@ class tree{
 			else 
 				return maximum(root->right);
 		}
-	/*	void print(node *root){
+		int height(node *root){
+			if (root==NULL)
+				return -1;
+			return max(height(root->left),height(root->right))+1;
+		}
+		void inorder(node *root){
 			if (root==NULL) return;
-			if(root->left!=NULL) print(root->left);
+			if(root->left!=NULL) inorder(root->left);
 			cout<<root->data<<" ";
-			if(root->right!=NULL) print(root->right); 
-		} */		
+			if(root->right!=NULL) inorder(root->right); 
+		} 		
+		void preorder(node *root){
+			if (root==NULL) return;
+			cout<<root->data<<" ";
+			if(root->left!=NULL) preorder(root->left);
+			if(root->right!=NULL) preorder(root->right); 
+		} 		
+		void postorder(node *root){
+			if (root==NULL) return;
+			if(root->left!=NULL) postorder(root->left);
+			if(root->right!=NULL) postorder(root->right);
+			cout<<root->data<<" "; 
+		} 		
+		void bfs(node *root){
+			if(root==NULL) return;
+			queue<node *> q;
+			q.push(root);
+			while(!q.empty()){
+				node *temp=q.front();
+				cout<<temp->data<<" ";
+				if(temp->left!=NULL) q.push(temp->left);
+				if(temp->right!=NULL) q.push(temp->right);
+				q.pop();
+			}
+		}
 };
 
 
@@ -76,7 +105,11 @@ int main(){
 	}
 	cout<<t.minimum(t.root)->data<<endl;
 	cout<<t.maximum(t.root)->data<<endl;
+	cout<<t.height(t.root)<<endl;
 	//cout<<t.root<<endl;
-	//t.print(t.root);
+	t.inorder(t.root); cout<<endl;
+	t.postorder(t.root); cout<<endl;
+	t.preorder(t.root); cout<<endl;
+	t.bfs(t.root); cout<<endl;
 	return 0;
 }
