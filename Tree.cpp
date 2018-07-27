@@ -1,3 +1,5 @@
+/* General implementation of BST using class */
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -42,12 +44,25 @@ class tree{
 			else root->right = insert(root->right,x);
 			return root; 
 		}
-		void print(node *root){
+		node *minimum(node *root){
+			if(root->left==NULL){
+				return root;
+			}
+			else
+				return minimum(root->left);
+		}
+		node *maximum(node *root){
+			if(root->right==NULL)
+				return root;
+			else 
+				return maximum(root->right);
+		}
+	/*	void print(node *root){
 			if (root==NULL) return;
 			if(root->left!=NULL) print(root->left);
 			cout<<root->data<<" ";
 			if(root->right!=NULL) print(root->right); 
-		}		
+		} */		
 };
 
 
@@ -59,7 +74,9 @@ int main(){
 		x=scan();
 		t.root=t.insert(t.root,x);
 	}
-	cout<<t.root<<endl;
-	t.print(t.root);
+	cout<<t.minimum(t.root)->data<<endl;
+	cout<<t.maximum(t.root)->data<<endl;
+	//cout<<t.root<<endl;
+	//t.print(t.root);
 	return 0;
 }
