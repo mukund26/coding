@@ -3,22 +3,36 @@
 using namespace std;
 
 bool palin(int,int);
+
+int scan(){
+    	register int c = getchar_unlocked();
+        register int n = 0;
+        register int neg=0;
+        for( ; ((c<48 || c>57)&&c!='-'); c = getchar_unlocked() );
+        if(c=='-') {
+        	neg=1; c=getchar_unlocked();
+        }
+        for( ; (c>47 && c<58); c = getchar_unlocked() ){
+            n = (n<<1) + (n<<3) +c -48;
+        }
+        if(neg) return -n;
+        else return n;
+}
+
 int main()
 {
-	int t;
-	cin>>t;
+	int t=scan();
 	while(t--)
 	{
 		int num,n;
-		cin>>num;
+		num=scan();
 		n=num;
 		while(palin(num,n)==false){
-		n=num;	
-		num++;
+			n=num;	
+			num++;
 		}
 		cout<<num<<endl;
 	}
-
 return 0;
 }
 
@@ -35,5 +49,4 @@ if(check==rev&&rev>n)
 return true;
 else
 return false;
-
 }
