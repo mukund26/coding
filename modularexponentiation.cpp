@@ -21,15 +21,24 @@ int scan(){
         if(neg) return -n;
         else return n;
 }
-
+/*
 ll modular_exp(ll x,ll n){
 	if(n==0)
 		return 1;
-	else
-	if(n%2==0)
+	else if(n%2==0)
 		return modular_exp((x*x)%INF,n/2);
 	else
 		return (x*modular_exp((x*x)%INF,(n-1)/2))%INF;
+}*/
+
+ll modular_exp(ll x, ll n){
+    ll a=1;
+    while(n){
+        if(n%2) a*=x; 
+        n>>=1;
+        x*=x;
+    }
+    return a;
 }
 
 int main(){
