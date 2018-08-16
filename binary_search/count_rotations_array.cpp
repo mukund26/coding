@@ -10,13 +10,11 @@ int binarysearch(int a[],int low,int high)
 
 	int mid=(low+high)/2;
 
-	if(low==high){
-		
+	if(low==high){		
 		return low;
 	}
 
-	if(mid<high&&a[mid+1]<a[mid])
-	{
+	if(mid<high&&a[mid+1]<a[mid]){
 		return mid+1;
 	}
 
