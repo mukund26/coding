@@ -1,8 +1,8 @@
 // Fast input - Output 
 
 
-inline void scanint(long long int &x)
- {   register long long int c = getchar();
+inline void scanint(long long int &x){   
+	register long long int c = getchar();
      x = 0;
      long long int neg = 0;
      for(;((c<48 || c>57) && c != '-');c = getchar());
@@ -15,12 +15,10 @@ inline void scanint(long long int &x)
 {
     int noRead=0;
     char p= getchar_unlocked();
-    for(;p<33;)
-    {
+    for(;p<33;){
      p=getchar_unlocked();
     };
-    while(p>32)
-    {
+    while(p>32){
      noRead = (noRead << 3) + (noRead << 1) + (p - '0');
      p=getchar_unlocked();
     }
@@ -34,22 +32,19 @@ inline void scanint(long long int &x)
 
 /** For codeforces this works the fastest  **/
 
-int readInt ()
-{
+int readInt (){
     bool minus = false;
     int result = 0;
     char ch;
     ch = getchar();
-    while (true)
-    {
+    while (true){
         if (ch == '-') break;
         if (ch >= '0' && ch <= '9') break;
         ch = getchar();
     }
     if (ch == '-') minus = true;
     else result = ch-'0';
-    while (true)
-    {
+    while (true){
         ch = getchar();
         if (ch < '0' || ch > '9') break;
         result = result*10 + (ch - '0');
@@ -61,8 +56,7 @@ int readInt ()
 }
 
 
-inline void writeInt (int n)
-{
+inline void writeInt (int n){
     int NN = n, rev, count = 0;
     rev = NN;
     if (NN == 0) { putchar('0');  return ;}
